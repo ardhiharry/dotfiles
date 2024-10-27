@@ -125,6 +125,7 @@ alias nip="npm i --production"
 alias ns="npm start"
 alias nt="npm test"
 alias nrd="npm run dev"
+alias nrsd="npm run start:dev"
 alias nrb="npm run build"
 alias nrl="npm run lint"
 alias nrp="npm run preview"
@@ -135,6 +136,7 @@ alias yr="yarn remove"
 alias ys="yarn start"
 alias yt="yarn test"
 alias yd="yarn dev"
+alias ysd="yarn start:dev"
 alias yb="yarn build"
 alias yl="yarn lint"
 alias yp="yarn preview"
@@ -147,11 +149,22 @@ alias pycharm="~/.local/share/JetBrains/Toolbox/apps/pycharm-professional/bin/py
 ####################
 ####### PATH #######
 ####################
-# Composer PATH
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+# Golang PATH
+export PATH="/usr/local/go/bin:$PATH"
 
-# Golag PATH
-export PATH="$PATH:/usr/local/go/bin"
-
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# Starship Shell
 eval "$(starship init zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="/home/ardhiharry/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/ardhiharry/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+# bun completions
+[ -s "/home/ardhiharry/.bun/_bun" ] && source "/home/ardhiharry/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
