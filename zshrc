@@ -108,6 +108,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Automatically start tmux if not already inside a tmux session
+if command -v tmux>/dev/null && [ -z "$TMUX" ]; then
+    tmux attach-session -t dev || tmux new-session -s dev
+fi
+
 # Manage Files
 alias ll="logo-ls -l"
 alias lal="logo-ls -al"
