@@ -151,6 +151,9 @@ alias phpstorm="~/.local/share/JetBrains/Toolbox/apps/phpstorm/bin/phpstorm.sh"
 alias idea="~/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin/idea.sh"
 alias pycharm="~/.local/share/JetBrains/Toolbox/apps/pycharm-professional/bin/pycharm.sh"
 
+# Docker Container
+alias kali="docker exec -it kali /bin/zsh"
+
 ####################
 ####### PATH #######
 ####################
