@@ -103,63 +103,37 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Automatically start tmux if not already inside a tmux session
-if command -v tmux>/dev/null && [ -z "$TMUX" ]; then
-    tmux attach-session -t dev || tmux new-session -s dev
-fi
+###################
+##### Aliases #####
+###################
+# System
+alias zshrefresh="source ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
+alias vim="nvim"
+alias clear="printf '\033[3J\033c\033[H'"
 
 # Manage Files
-alias ll="logo-ls -l"
-alias lal="logo-ls -al"
-alias la="logo-ls -a"
-alias l="logo-ls"
+alias l="eza -G --icons=auto"
+alias ll="eza -lh --icons=auto"
+alias la="eza -aG --icons=auto"
+alias lal="eza -lha --icons=auto"
+alias lt="eza -T --icons=auto"
+alias lst="tree -a -s -t -C -L 1"
+alias mkdir="mkdir -p"
 alias cp="cp -i"
 alias mv="mv -i"
-alias lst="tree -a -s -t -C -L 1"
-alias vim="nvim"
+alias rm="rm -rf"
 
-# NodeJS
-alias ni="npm i"
-alias nu="npm uninstall"
-alias nip="npm i --production"
-alias ns="npm start"
-alias nt="npm test"
-alias nrd="npm run dev"
-alias nrsd="npm run start:dev"
-alias nrb="npm run build"
-alias nrl="npm run lint"
-alias nrp="npm run preview"
-
-# Yarn
-alias ya="yarn add"
-alias yr="yarn remove"
-alias ys="yarn start"
-alias yt="yarn test"
-alias yd="yarn dev"
-alias ysd="yarn start:dev"
-alias yb="yarn build"
-alias yl="yarn lint"
-alias yp="yarn preview"
-
-# JetBrains IDE
-alias phpstorm="~/.local/share/JetBrains/Toolbox/apps/phpstorm/bin/phpstorm.sh"
-alias idea="~/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin/idea.sh"
-alias pycharm="~/.local/share/JetBrains/Toolbox/apps/pycharm-professional/bin/pycharm.sh"
-
-# Docker Container
-alias kali="docker exec -it kali /bin/zsh"
+# Directory navigation shortcuts
+alias .2="../.."
+alias .3="../../../"
+alias .4="../../../.."
+alias .5="../../../../.."
 
 ####################
 ####### PATH #######
 ####################
-# Golang PATH
-export PATH="/usr/local/go/bin:$PATH"
-
 # Starship Shell
 eval "$(starship init zsh)"
 
@@ -167,12 +141,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH="/home/ardhiharry/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/home/ardhiharry/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
-
-# bun completions
-[ -s "/home/ardhiharry/.bun/_bun" ] && source "/home/ardhiharry/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# PHPenv
+export PATH="$HOME/.phpenv/bin:$PATH"
+eval "$(phpenv init -)"
