@@ -1,0 +1,123 @@
+@import "colors/one-dark.css";
+
+* {
+  font-family: 'CaskaydiaCove Nerd Font', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+tooltip {
+  background: @bg0;
+  border: 1px solid @bg3;
+  border-radius: 12px;
+}
+
+tooltip label {
+  color: @fg;
+  padding: 6px;
+}
+
+#workspaces {
+  background-color: @bg5;
+  padding: 5px 3px;
+  margin: 0 6px 0 0;
+  border-radius: 18px;
+  border: 1px solid @bg1;
+  color: @fg;
+}
+
+#workspaces button {
+  padding: 0 6px;
+  margin: 0 3px;
+  border-radius: 50px;
+  color: @white;
+  background-color: @bg1;
+  transition: all .3s ease-in-out;
+}
+
+#workspaces button.active {
+  min-width: 50px;
+  background-color: @blue;
+  color: @bg5;
+  font-size: 13px;
+  transition: all .3s ease-in-out;
+}
+
+#workspaces button:hover {
+  min-width: 50px;
+  background-color: @purple;
+  color: @bg0;
+  border-radius: 16px;
+  background-size: 400% 400%;
+}
+
+#workspaces button.urgent {
+  min-width: 50px;
+  background-color: @red;
+  color: @bg0;
+  border-radius: 16px;
+  background-size: 400% 400%;
+  transition: all .3s ease-in-out;
+}
+
+.modules-right {
+  color: @fg;
+  background-color: @bg5;
+  margin-right: 12px;
+  padding: 0 5px;
+  border-radius: 45px;
+  border: 1px solid @bg1;
+}
+
+#clock, #tray {
+  color: @fg;
+  background-color: @bg5;
+  padding: 0 10px;
+  border-radius: 45px;
+  border: 1px solid @bg1;
+}
+
+#clock,
+#idle_inhibitor,
+#pulseaudio,
+#network,
+#battery,
+#custom-notification,
+#custom-power {
+  padding: 0 10px;
+}
+
+#clock {
+  margin-left: 12px;
+  color: @blue;
+}
+
+#pulseaudio {
+  color: @yellow;
+}
+
+#network {
+  color: @purple;
+}
+
+#battery {
+  color: @green;
+}
+
+#custom-notification {
+  color: @fg;
+}
+
+#custom-power {
+  color: @red;
+}

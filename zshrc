@@ -71,13 +71,12 @@ ZSH_THEME="bira"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
-	sudo
-	virtualenv
-	zsh-syntax-highlighting
-	zsh-autosuggestions
-	ohmyzsh-full-autoupdate
-	zsh-dircolors-solarized
+  git
+  sudo
+  virtualenv
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  ohmyzsh-full-autoupdate
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -108,8 +107,13 @@ source $ZSH/oh-my-zsh.sh
 ##### Aliases #####
 ###################
 # System
-alias zshrefresh="source ~/.zshrc"
-alias zshconfig="nvim ~/.zshrc"
+alias zshref="source ~/.zshrc"
+alias zshconf="nvim ~/.zshrc"
+alias kittyconf="vim ~/.config/kitty/kitty.conf"
+alias hyprconf="vim ~/.config/hypr/hyprland.conf"
+alias keybinds="vim ~/.config/hypr/modules/keybinds.conf"
+alias autostart="vim ~/.config/hypr/modules/autostart.conf"
+alias monitors="vim ~/.config/hypr/modules/monitors.conf"
 alias vim="nvim"
 alias clear="printf '\033[3J\033c\033[H'"
 
@@ -131,24 +135,41 @@ alias .3="../../../"
 alias .4="../../../.."
 alias .5="../../../../.."
 
+# Docker
+alias dps="docker ps"
+alias dil="docker image ls"
+alias dcl="docker container ls -a"
+alias dcstart="docker container start"
+alias dcstop="docker container stop"
+
+# GNS3
+alias gns3env="source ~/gns3-env/bin/activate"
+
+
 ####################
 ####### PATH #######
 ####################
+
+# Programs Binary
+export PATH="$HOME/.local/bin:$PATH"
+
 # Starship Shell
 eval "$(starship init zsh)"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# NVM
+source /usr/share/nvm/init-nvm.sh
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# export BUN_INSTALL="$HOME/.bun"
+# export PATH="$BUN_INSTALL/bin:$PATH"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # PHPenv
-export PATH="$HOME/.phpenv/bin:$PATH"
-eval "$(phpenv init -)"
+# export PATH="$HOME/.phpenv/bin:$PATH"
+# eval "$(phpenv init -)"
